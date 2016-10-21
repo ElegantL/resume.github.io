@@ -11,7 +11,7 @@ html,body{
 
 div,p,img,h1,h2,canvas{
     margin: 0;
-    padding: 0;    
+    padding: 0;  
 }
 img{
     border: 0;
@@ -32,10 +32,10 @@ img{
     -ms-animation: rotate 5s linear infinite;
     @keyframes rotate{
         0%{
-            transform: rotate(0);
-            -ms-transform: rotate(0);
-            -moz-transform: rotate(0);
-            -webkit-transform: rotate(0);
+            transform: rotate(0deg);
+            -ms-transform: rotate(0deg);
+            -moz-transform: rotate(0deg);
+            -webkit-transform: rotate(0deg);
         }
         25%{
             transform: rotate(90deg);
@@ -57,9 +57,9 @@ img{
         }
         100%{
             transform: rotate(360deg);
-            -ms-transform: translateY(360deg);
+            -ms-transform: rotate(360deg);
             -moz-transform: rotate(360deg);
-            -webkit-transform: translateY(360deg);
+            -webkit-transform: rotate(360deg);
         }
     }
 }

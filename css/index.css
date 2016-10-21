@@ -92,10 +92,10 @@ img {
 }
 @keyframes rotate {
   0% {
-    transform: rotate(0);
-    -ms-transform: rotate(0);
-    -moz-transform: rotate(0);
-    -webkit-transform: rotate(0);
+    transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
   }
   25% {
     transform: rotate(90deg);
@@ -117,9 +117,9 @@ img {
   }
   100% {
     transform: rotate(360deg);
-    -ms-transform: translateY(360deg);
+    -ms-transform: rotate(360deg);
     -moz-transform: rotate(360deg);
-    -webkit-transform: translateY(360deg);
+    -webkit-transform: rotate(360deg);
   }
 }
 #cont .item1 .box > div {
@@ -211,10 +211,10 @@ img {
 }
 @keyframes rotate {
   0% {
-    transform: rotate(0);
-    -ms-transform: rotate(0);
-    -moz-transform: rotate(0);
-    -webkit-transform: rotate(0);
+    transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
   }
   25% {
     transform: rotate(90deg);
@@ -236,9 +236,9 @@ img {
   }
   100% {
     transform: rotate(360deg);
-    -ms-transform: translateY(360deg);
+    -ms-transform: rotate(360deg);
     -moz-transform: rotate(360deg);
-    -webkit-transform: translateY(360deg);
+    -webkit-transform: rotate(360deg);
   }
 }
 #cont .item2 .portrait img:nth-of-type(2) {
@@ -331,10 +331,10 @@ img {
 }
 @keyframes rotate {
   0% {
-    transform: rotate(0);
-    -ms-transform: rotate(0);
-    -moz-transform: rotate(0);
-    -webkit-transform: rotate(0);
+    transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
   }
   25% {
     transform: rotate(90deg);
@@ -356,9 +356,9 @@ img {
   }
   100% {
     transform: rotate(360deg);
-    -ms-transform: translateY(360deg);
+    -ms-transform: rotate(360deg);
     -moz-transform: rotate(360deg);
-    -webkit-transform: translateY(360deg);
+    -webkit-transform: rotate(360deg);
   }
 }
 #cont .item3 .skillBox, #cont .item4 .skillBox {
@@ -599,10 +599,10 @@ img {
 }
 @keyframes rotate {
   0% {
-    transform: rotate(0);
-    -ms-transform: rotate(0);
-    -moz-transform: rotate(0);
-    -webkit-transform: rotate(0);
+    transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
   }
   25% {
     transform: rotate(90deg);
@@ -624,9 +624,9 @@ img {
   }
   100% {
     transform: rotate(360deg);
-    -ms-transform: translateY(360deg);
+    -ms-transform: rotate(360deg);
     -moz-transform: rotate(360deg);
-    -webkit-transform: translateY(360deg);
+    -webkit-transform: rotate(360deg);
   }
 }
 #cont .item5 .box h1, #cont .item6 .box h1 {
