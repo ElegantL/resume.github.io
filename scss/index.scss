@@ -1,0 +1,529 @@
+@charset "Utf-8";
+
+html,body{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: "微软雅黑";
+}
+
+div,p,img,h1,h2,canvas{
+    margin: 0;
+    padding: 0;    
+}
+img{
+    border: 0;
+}
+@media screen and (min-width: 415px){
+    #cont{
+        width: 414px!important;
+        height:736px;
+        margin: 0 auto;
+        border: 1px solid #333;
+    }
+}
+
+@mixin rotateBg{
+    animation: rotate 5s linear infinite;
+    -webkit-animation: rotate 5s linear infinite;
+    -moz-animation: rotate 5s linear infinite;
+    -ms-animation: rotate 5s linear infinite;
+    @keyframes rotate{
+        0%{
+            transform: rotate(0);
+            -ms-transform: rotate(0);
+            -moz-transform: rotate(0);
+            -webkit-transform: rotate(0);
+        }
+        25%{
+            transform: rotate(90deg);
+            -ms-transform: rotate(90deg);
+            -moz-transform: rotate(90deg);
+            -webkit-transform: rotate(90deg);
+        }
+        50%{
+            transform: rotate(180deg);
+            -ms-transform: rotate(180deg);
+            -moz-transform: rotate(180deg);
+            -webkit-transform: rotate(180deg);
+        }
+        75%{
+            transform: rotate(270deg);
+            -ms-transform: rotate(270deg);
+            -moz-transform: rotate(270deg);
+            -webkit-transform: rotate(270deg);
+        }
+        100%{
+            transform: rotate(360deg);
+            -ms-transform: translateY(360deg);
+            -moz-transform: rotate(360deg);
+            -webkit-transform: translateY(360deg);
+        }
+    }
+}
+
+@mixin position-center($left){
+    position: absolute;
+    left: 50%;
+    margin-left: $left;
+}
+
+@mixin bounceLine($index){
+    animation: bounceLine 1s ease-in-out $index*0.5s infinite;
+    -webkit-animation: bounceLine 1s ease-in-out $index*0.5s infinite;
+    -moz-animation: bounceLine 1s ease-in-out $index*0.5s infinite;
+    -ms-animation: bounceLine 1s ease-in-out $index*0.5s infinite;              
+    @keyframes bounceLine{
+        0%{
+            height: 40px;                    
+        }
+        50%{
+            height: 0px;                    
+        }
+        100%{
+            height: 40px;
+        }
+    } 
+}
+
+#cont{
+    width: 100%;
+    height: 100%;
+    min-height: 568px;
+    position: relative;     
+    .swiper-container {
+        width: 100%;
+        height: 100%;
+        background: url(../img/bg.png) 0 0 no-repeat;       
+    }
+    #nextBtn{
+        width: 36px;
+        height: 20px;
+        position: absolute;
+        left: 50%;            
+        bottom: 3%;
+        margin-left: -18px;
+        z-index: 99;
+        animation: next 1s ease-in-out infinite;
+        -webkit-animation: next 1s ease-in-out infinite;
+        @keyframes next{
+            0%{
+                transform: translateY(0);
+                -ms-transform: translateY(0);
+                -webkit-transform: translateY(0);
+            }
+            50%{
+                transform: translateY(10px);
+                -ms-transform: translateY(10px);
+                -webkit-transform: translateY(10px);
+            }
+            100%{
+                transform: translateY(0);
+                -ms-transform: translateY(0);
+                -webkit-transform: translateY(0);
+            }
+        }
+    } 
+
+    .swiper-slide{
+        width: 100%;
+        height: 100%;
+        min-height: 568px!important;
+        color: #fff;
+        position: relative;
+    }   
+    .item1{
+        color: #0bb6db; 
+        .box{
+            width: 300px;
+            height:300px;
+            margin: 20%;
+            @include position-center(-150px);
+            .rotateBg{
+                width: 300px;
+                height: 300px;
+                @include rotateBg;                
+            }
+            >div{
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                z-index: 10;
+                span{
+                    width: 100%;
+                    height: 100%;
+                    display: block;
+                    display: flex;  
+                    flex-flow: column; 
+                }
+                >div{
+                    width: 0;
+                    height: 0;                   
+                    @include position-center(-100px);
+                    top: 25%;
+                    z-index: 20;
+                    border-top: 180px solid #38adf1;
+                    border-left: 100px solid transparent;
+                    border-right: 100px solid transparent;                                    
+                }
+                h1{
+                    width: 100%;
+                    position: absolute;
+                    z-index: 30;
+                    top: 30%;
+                    color: #fff;
+                    text-align: center;
+                } 
+                p{
+                    width: 120px;
+                    height: 20px;                    
+                    z-index: 30;
+                    text-align: center;
+                    font-size: 16px;
+                    font-weight: bold;
+                    padding: 5px 0; 
+                    color: #fff;
+                }
+                p:nth-of-type(1){
+                    @include position-center(-60px);
+                    border: 1px solid #fff;
+                    top: 40%;
+                }
+                p:nth-of-type(2){
+                    width: 200px;
+                    @include position-center(-100px);
+                    top: 50%;
+                }                
+            }
+        }
+        .theme{
+            width: 60%;
+            height: 12%;
+            position: absolute;
+            top: 72%;
+            left: 20%;                       
+        }
+    }
+    .item2{
+        color: #0bb6db;
+        >h1{           
+            margin-left: 20px;
+            margin-top: 20px;
+        }
+        .portrait{
+            width: 210px;
+            height: 210px;
+            @include position-center(-105px);
+            top: 8%;
+            .rotateBg{
+                width: 100%;
+                height: 100%;                       
+                @include rotateBg;
+            }
+            img:nth-of-type(2){
+                @include position-center(-95px);
+                top: 10px;
+            }
+        }
+        
+        .box{
+            width: 80%;
+            height: 50%;
+            margin-left: 10%;
+            position: relative;
+            top: 32%;           
+            .frame1{
+                width: 100%;
+                height: 50px;
+                position: absolute;
+                top: 0;
+                background: url(../img/frame-top.png) 0 0 no-repeat;               
+            }
+            .frame2{
+                width: 30px;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                right: 0;
+                background: url(../img/frame-right.png) no-repeat;
+                background-position: bottom;
+            }
+            .frame3{
+                width: 88%;
+                height: 1px;
+                position: absolute;
+                left: 2px;
+                bottom: 0; 
+                border-top: 1px solid #38ADF1;              
+            }
+            .frame4{
+                width: 3px;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                background: url(../img/frame-left.png) no-repeat;
+                background-position: bottom;
+            }
+            p{
+                width: 90%;
+                height: 25px;
+                font-size: 14px;
+                margin-left: 10%; 
+                overflow: hidden;
+                color: #fff;
+            }
+            p:nth-of-type(1){
+                padding-top: 30%;
+            }
+            p~p{
+                margin-top:15px;
+            }
+        }
+        
+    }
+    .item3,.item4{
+        color: #0bb6db;
+        >h1{           
+            margin-left: 20px;
+            margin-top: 20px;
+        }
+        .centerBox{
+            width: 130px;
+            height: 130px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -65px;
+            margin-left: -64px;
+            background: url(../img/item3_bg1.png) 0 0 no-repeat;
+            >div{
+                width: 130px;
+                height: 130px;
+                background: url(../img/rotate1.png);
+                position: absolute;
+                top: 0;
+                left: 0;
+                @include rotateBg;
+            }
+        }
+        .skillBox{
+            width: 86%;
+            height: 70%;
+            top: 15%;
+            left: 7%;
+            position: absolute;
+            div{
+                width: 127px;
+                height: 127px;
+                background: url(../img/skillBoxBg.png) 0 0 no-repeat;
+                position: absolute;
+                z-index: 66;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: #fff;
+                font-size: 20px;
+                span{
+                    display: block;
+                    width: 105px;
+                    height: 105px;
+                    text-align: center;
+                    line-height: 105px;
+                }                                                                                         
+            }
+            div:nth-of-type(1){
+                top:0;
+                left:0;
+                span{
+                    background: url(../img/90percent.png) 0 0 no-repeat;
+                }                
+            }
+            div:nth-of-type(2){
+                top: 0;
+                right: 0;
+                span{
+                    background: url(../img/90percent.png) 0 0 no-repeat;
+                }               
+            }
+            div:nth-of-type(3){
+                left: 0;
+                bottom: 0;
+                span{
+                    background: url(../img/80percent.png) 0 0 no-repeat;
+                }
+            }
+            div:nth-of-type(4){
+                right: 0;
+                bottom: 0;
+                span{
+                    background: url(../img/80percent.png) 0 0 no-repeat;
+                }
+            }
+        }        
+        .bottomBox{
+            width: 62px;
+            height: 142px;
+            background: url(../img/item3_bg2.png);
+            @include position-center(-31px);
+            bottom:8%;
+        }
+        .dropLine{
+            width: 100%;
+            height: 40px;
+            position: absolute;
+            bottom: 8%;
+            display: flex;
+            flex-flow: row;
+            justify-content: space-around; 
+            align-items: flex-end;
+            div{
+                height: 0px;
+                width: 1px;
+                border-left: 1px solid #00bbec;                                          
+            }
+            .line1{
+                 @include bounceLine(1);
+            }
+            .line2{
+                 @include bounceLine(2);
+            }
+            .line3{
+                 @include bounceLine(3);
+            }
+            .line4{
+                 @include bounceLine(4);
+            }
+            .line5{
+                 @include bounceLine(5);
+            }
+            .line6{
+                 @include bounceLine(6);
+            }
+            .line7{
+                 @include bounceLine(7);
+            }
+        }
+    }
+    .item4{
+        .skillBox{
+            >div:nth-of-type(1){
+                span{
+                    background: url(../img/80percent.png) 0 0 no-repeat;
+                }
+            }
+            >div:nth-of-type(2){
+                span{
+                    background: url(../img/75percent.png) 0 0 no-repeat;
+                }
+            }
+            >div:nth-of-type(3){
+                span{
+                    background: url(../img/50percent.png) 0 0 no-repeat;
+                }
+            }
+            >div:nth-of-type(4){
+                span{
+                    background: url(../img/50percent.png) 0 0 no-repeat;
+                }
+            }                
+        }            
+    }
+    .item5,.item6{ 
+        color: #0bb6db;      
+        .bg{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            z-index: -9;
+        }
+        >h1{
+            color: #0bb6db;
+            margin-left: 20px;
+            margin-top: 20px;
+        }
+        .box{
+            width: 65px;
+            height: 65px;
+            background: url(../img/rotateBg3.png) 0 0 no-repeat;
+            position: absolute;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            @include rotateBg;
+            h1{                
+                font-size: 32px;
+            }
+        }
+        >div{           
+            top: 24%;
+            left: 16%;            
+        }               
+        span{
+            display: block;
+            position: absolute;
+            color: #fff;
+        }
+        span:nth-of-type(1){
+            left: 38%;
+            top: 19%;
+        }
+        span:nth-of-type(2){
+            left: 10%;
+            top: 39%;
+        }
+        span:nth-of-type(3){
+            left: 17%;
+            top: 61%;
+        }        
+    }
+    .item6{        
+        >div{
+            top: 40%;
+            left: 75%;
+        }                
+    }
+    .item7{
+        color: #0bb6db;  
+        .bg{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            z-index: -9;
+        }
+        h1{           
+            margin-left: 20px;
+            margin-top: 20px;
+        }
+        .code{
+            width: 164px;
+            height: 164px;
+            background-color: #0bb6db;
+            @include position-center(-82px);
+            top: 36%;
+        }
+        .connection{
+            height: 15%;
+            position: absolute;
+            left: 29%;
+            top: 68%;
+            display: flex;
+            flex-flow: column;
+            justify-content: space-around;          
+            div{
+                display: flex;
+                flex-flow: row;
+                justify-content: flex-start;
+                align-items: center;
+                span{
+                    font-size: 30px;
+                }
+                p{
+                    padding-left: 10px;
+                }
+            }
+        }       
+    }
+}
+
