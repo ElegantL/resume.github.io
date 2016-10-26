@@ -27,9 +27,9 @@ img{
 
 @mixin rotateBg{
     animation: rotate 5s linear infinite;
-    -webkit-animation: rotate 5s linear infinite;
-    -moz-animation: rotate 5s linear infinite;
-    -ms-animation: rotate 5s linear infinite;
+    -webkit-animation: rotate 5s linear 1s infinite;
+    -moz-animation: rotate 5s linear 1s infinite;
+    -ms-animation: rotate 5s linear 1s infinite;
     
     transform: transition3d(0,0,0);
     -webkit-transform: transition3d(0,0,0);
@@ -74,6 +74,59 @@ img{
     }
 }
 
+//@mixin scaleFrame($prop,$time){
+//  animation: scaleframe 1s ease-in-out $time;
+//  -webkit-animation: scaleframe 1s ease-in-out $time;
+//  -moz-animation: scaleframe 1s ease-in-out $time;
+//  -ms-animation: scaleframe 1s ease-in-out $time; 
+//  
+//  transform: transition3d(0,0,0);
+//  -webkit-transform: transition3d(0,0,0);
+//  -moz-transform: transition3d(0,0,0);    
+//  -ms-transform: transition3d(0,0,0);
+//  
+//  transform: translateZ(0);   
+//  -webkit-transform: translateZ(0);
+//  -moz-transform: translateZ(0);
+//  -ms-transform: translateZ(0);
+//  @keyframes scaleframe{
+//      @if $prop == width{
+//          0%{
+//              width: 0%;
+//          }
+//          25%{
+//              width: 25%;
+//          }
+//          50%{
+//              width: 50%;
+//          }
+//          75%{
+//              width: 75%;
+//          }
+//          100%{
+//              width: 100%;
+//          }
+//      }@else if $prop == height{
+//          0%{
+//              height: 0%;
+//          }
+//          25%{
+//              height: 25%;
+//          }
+//          50%{
+//              height: 50%;
+//          }
+//          75%{
+//              height: 75%;
+//          }
+//          100%{
+//              height: 100%;
+//          }
+//      }
+//      
+//  }
+//}
+
 @mixin position-center($left){
     position: absolute;
     left: 50%;
@@ -106,16 +159,25 @@ img{
     .swiper-container {
         width: 100%;
         height: 100%;
-        background: url(../img/bg.png) 0 0 no-repeat;       
+        background: url(../img/bg.png) 0 0 no-repeat; 
+        .circleBg{
+            display: block;
+            background: url(../img/circle_Bg.png) 0 0 no-repeat;
+        }
+        .othersBg{
+            display: block;
+            background: url(../img/others_Bg.png) 0 0 no-repeat;
+        }      
     }
     #nextBtn{
-        width: 36px;
-        height: 20px;
+        width: 56px;
+        height: 30px;
         position: absolute;
         left: 50%;            
         bottom: 3%;
-        margin-left: -18px;
+        margin-left: -28px;
         z-index: 99;
+        background: url(../img/others_Bg.png) 0 -83px no-repeat;
         animation: next 1s ease-in-out infinite;
         -webkit-animation: next 1s ease-in-out infinite;
         @keyframes next{
@@ -151,7 +213,7 @@ img{
             height:300px;
             margin: 20%;
             @include position-center(-150px);
-            .rotateBg{
+            .circleBg{
                 width: 300px;
                 height: 300px;
                 @include rotateBg;                
@@ -209,12 +271,14 @@ img{
                 }                
             }
         }
-        .theme{
-            width: 60%;
-            height: 12%;
+        .othersBg{
+            width: 254px;
+            height: 83px;
+            background-position: 0 0;
             position: absolute;
             top: 72%;
-            left: 20%;                       
+            left: 50%; 
+            margin-left: -127px;                      
         }
     }
     .item2{
@@ -228,12 +292,13 @@ img{
             height: 210px;
             @include position-center(-105px);
             top: 8%;
-            .rotateBg{
+            .circleBg{
                 width: 100%;
-                height: 100%;                       
+                height: 100%;
+                background-position: -300px 0;                       
                 @include rotateBg;
             }
-            img:nth-of-type(2){
+            img{
                 @include position-center(-95px);
                 top: 10px;
             }
@@ -245,38 +310,35 @@ img{
             margin-left: 10%;
             position: relative;
             top: 32%;           
-            .frame1{
-                width: 100%;
-                height: 50px;
-                position: absolute;
-                top: 0;
-                background: url(../img/frame-top.png) 0 0 no-repeat;               
-            }
-            .frame2{
-                width: 30px;
-                height: 100%;
-                position: absolute;
-                top: 0;
-                right: 0;
-                background: url(../img/frame-right.png) no-repeat;
-                background-position: bottom;
-            }
-            .frame3{
-                width: 88%;
-                height: 1px;
-                position: absolute;
-                left: 2px;
-                bottom: 0; 
-                border-top: 1px solid #38ADF1;              
-            }
-            .frame4{
-                width: 3px;
-                height: 100%;
-                position: absolute;
-                top: 0;
-                background: url(../img/frame-left.png) no-repeat;
-                background-position: bottom;
-            }
+//          .frame1,.frame2,.frame3,.frame4{
+//              width: 100%;
+//              height: 100%;
+//              position: absolute;                
+//              box-shadow: 0 0 0 0.5px #0bb6db;                              
+//          }
+//          .frame1{
+//              height: 1px;
+//              left: 0;
+//              top: 0;
+//              @include scaleFrame(width,0.5s);
+//          }
+//          .frame2{
+//              width: 1px;
+//              top: 0;
+//              right: 0;                
+//              @include scaleFrame(height,1s);
+//          }
+//          .frame3{
+//              height: 1px;
+//              left: 0;
+//              bottom: 0; 
+//              @include scaleFrame(width,1.5s);              
+//          }
+//          .frame4{
+//              width: 1px;
+//              top: 0;
+//              @include scaleFrame(height,2s);
+//          }
             p{
                 width: 90%;
                 height: 25px;
@@ -308,12 +370,10 @@ img{
             left: 50%;
             margin-top: -65px;
             margin-left: -64px;
-            background: url(../img/item3_bg1.png) 0 0 no-repeat;
+            background-position: 0 -300px;
             >div{
                 width: 130px;
-                height: 130px;
-                background: url(../img/rotate1.png);
-                position: absolute;
+                height: 130px;                
                 top: 0;
                 left: 0;
                 @include rotateBg;
@@ -328,7 +388,7 @@ img{
             div{
                 width: 127px;
                 height: 127px;
-                background: url(../img/skillBoxBg.png) 0 0 no-repeat;
+                background-position: -130px -300px;
                 position: absolute;
                 z-index: 66;
                 display: flex;
@@ -342,41 +402,36 @@ img{
                     height: 105px;
                     text-align: center;
                     line-height: 105px;
+                    background: url(../img/circle_Bg.png) 0 -430px no-repeat;
                 }                                                                                         
             }
             div:nth-of-type(1){
                 top:0;
-                left:0;
-                span{
-                    background: url(../img/90percent.png) 0 0 no-repeat;
-                }                
+                left:0;                               
             }
             div:nth-of-type(2){
                 top: 0;
-                right: 0;
-                span{
-                    background: url(../img/90percent.png) 0 0 no-repeat;
-                }               
+                right: 0;                              
             }
             div:nth-of-type(3){
                 left: 0;
                 bottom: 0;
                 span{
-                    background: url(../img/80percent.png) 0 0 no-repeat;
+                    background-position: -105px -430px;
                 }
             }
             div:nth-of-type(4){
                 right: 0;
                 bottom: 0;
                 span{
-                    background: url(../img/80percent.png) 0 0 no-repeat;
+                    background-position: -105px -430px;
                 }
             }
         }        
         .bottomBox{
             width: 62px;
             height: 142px;
-            background: url(../img/item3_bg2.png);
+            background-position: -254px 0;
             @include position-center(-31px);
             bottom:8%;
         }
@@ -421,22 +476,22 @@ img{
         .skillBox{
             >div:nth-of-type(1){
                 span{
-                    background: url(../img/80percent.png) 0 0 no-repeat;
+                    background-position: -105px -430px;
                 }
             }
             >div:nth-of-type(2){
                 span{
-                    background: url(../img/75percent.png) 0 0 no-repeat;
+                    background-position: -210px -430px;
                 }
             }
             >div:nth-of-type(3){
                 span{
-                    background: url(../img/50percent.png) 0 0 no-repeat;
+                    background-position: -315px -430px;
                 }
             }
             >div:nth-of-type(4){
                 span{
-                    background: url(../img/50percent.png) 0 0 no-repeat;
+                    background-position: -315px -430px;
                 }
             }                
         }            
@@ -457,7 +512,7 @@ img{
         .box{
             width: 65px;
             height: 65px;
-            background: url(../img/rotateBg3.png) 0 0 no-repeat;
+            background-position: -257px -301px;
             position: absolute;
             display: inline-flex;
             justify-content: center;
